@@ -18,3 +18,8 @@ This blog will have 3 main types of posts:
 ## Posts
 + [Hello World](https://bfcmath.github.io/posts/Hello-World/)
 + [How to learn AI for beginners](https://bfcmath.github.io/posts/How-to-learn-AI-for-beginners/)
+
+<!-- FOR BFC ONLY -->
+<!-- bundle lock --add-platform x86_64-linux  -->
+<!-- bundle exec jekyll s                     -->
+
