@@ -1,6 +1,7 @@
 ---
 title: Are Vision Language Models learning effectively?
-date: 2025-2-4 21:00:00 +0700  
+date: 2025-2-6 21:00:00 +0700  
+last_modified_at: 2025-02-7 14:00:00 +0700
 categories: [Yapping, AI-Questioning]  
 tags: [en, vlm, vit, intermediate]  
 description: Take a look how VLMs learn and the effectiveness of their learning process.
@@ -34,7 +35,7 @@ VLMs generally consist of:
 Almost all modern VLMs are leveraging Vision Transformers (ViTs) as their primary image encoder architecture. 
 
 Let's take a look at the ViT:
-+ Treating Images Like Sequences of Words
++ Treating images like sequences of words
 + ViT uses a standard Transformer encoder
 + ViT is trained on a large labeled image data (supervised learning)
  
@@ -48,9 +49,20 @@ However, compared to text encoders, originnal ViTs used supervised learning!
 
 The pretraining phases of modern and foundational transformer-based models are all based on self-supervised learning. 
 
-From my perspective, self-supervised learning helps models learn more general features from the data. No hacking for the output, much more data to train, no bias or errors from the labels! 
+From my perspective, self-supervised learning helps models learn more general features from the data. No hacking for the output, much more data to train, no bias or errors from the labels! (more details in the next section)
 
 ViT is lacking in this aspect. 
+
+### The difference between scalability in Text Encoder and Image Encoder
+
+Text Encoders' scalability advantage: 
+   + **Abundant Unlabeled Text Data**: The internet is awash with text data – websites, books, articles, code, social media posts, etc. This data is essentially free and constantly growing.
+   + **Self-Supervised Learning Paradigm**: Methods like Masked Language Modeling (MLM) and Next Sentence Prediction (NSP) (in older models like BERT) or just next-token prediction (in GPT-style models) allow models to learn directly from unlabeled text. They create their own "labels" implicitly within the data itself. This means you can train on massive datasets without the expensive and time-consuming process of manual annotation.
+
+Vision Encoders' scalability bottleneck:
+   + **Labeled Image Data Scarcity**: Creating large, high-quality, labeled image datasets like ImageNet is expensive, time-consuming, and labor-intensive. 
+   + **Supervised Tasks Might Not Scale Representations as Effectively**: While image classification is important, it might not be as effective in learning general-purpose visual representations as self-supervised tasks are for language. Supervised classification can be more focused on task-specific features.
+   + **Data Labeling Bias and Limitations**: Labeled datasets can also introduce biases based on the annotators and the labeling process itself. The categories are pre-defined and might not capture the full richness of visual information.
 
 ### Are Transformers Really Suitable for Vision Tasks?
 
