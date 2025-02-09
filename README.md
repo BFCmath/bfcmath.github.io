@@ -19,6 +19,7 @@ This blog will have 3 main types of posts:
 + [Hello World](https://bfcmath.github.io/posts/Hello-World/)
 + [How to learn AI for beginners](https://bfcmath.github.io/posts/How-to-learn-AI-for-beginners/)
 + [Prompting bias in LLM Benchmarks](https://bfcmath.github.io/posts/Prompting-bias-in-LLM-Benchmarks/)
++ [Are Vision Language Models learning effectively?](https://bfcmath.github.io/posts/Are-Vision-Language-Models-learning-effectively/)
 <!-- FOR BFC ONLY -->
 <!-- bundle lock --add-platform x86_64-linux  -->
 <!-- bundle exec jekyll s                     -->
