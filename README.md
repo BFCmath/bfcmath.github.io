@@ -20,6 +20,7 @@ This blog will have 3 main types of posts:
 + [How to learn AI for beginners](https://bfcmath.github.io/posts/How-to-learn-AI-for-beginners/)
 + [Prompting bias in LLM Benchmarks](https://bfcmath.github.io/posts/Prompting-bias-in-LLM-Benchmarks/)
 + [Are Vision Language Models learning effectively?](https://bfcmath.github.io/posts/Are-Vision-Language-Models-learning-effectively/)
++ [My first ever AI competition (DSC UIT 2024)](https://bfcmath.github.io/posts/My-first-ever-AI-competition-(DSC-UIT-2024)/)
 <!-- FOR BFC ONLY -->
 <!-- bundle lock --add-platform x86_64-linux  -->
 <!-- bundle exec jekyll s                     -->
