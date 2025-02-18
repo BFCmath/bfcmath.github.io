@@ -49,6 +49,7 @@ AI is everywhere right now, isn't it? It feels like every day there's a new mind
 
 ### Model Architecture
 Now let's dive into the architecture. Refer to the diagram below to get a sense of the model's structure, which I will explain in detail in the following sections.
+
 ![transformers](../assets/in-context/attention-is-all-you-need/transformer.png){: height="200"}
 
 
