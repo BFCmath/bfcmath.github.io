@@ -21,7 +21,8 @@ comments: true
 AI is everywhere right now, isn't it? It feels like every day there's a new mind-blowing model or application making headlines. It's easy to get caught up in the hype, the "AI FOMO" as some call it. But if you're serious about actually understanding this AI revolution, you need to go deeper than just the surface. You need to grasp the core concepts that power these breakthroughs. And when it comes to modern AI, especially in language and vision, one concept stands tall: Attention. Today, we're going back to the source, the paper that arguably started it all: "Attention is All You Need." Get ready for an in-depth exploration of the Transformer architecture.
 
 ## Attention Is All You Need
-> In the following parts, I will follow the structure of the paper, breaking down the key components and concepts.****
+
+> In the following parts, I will follow the structure of the paper, breaking down the key components and concepts.
 
 ### Introduction
 - For years, Recurrent Neural Networks – especially LSTMs and GRUs – reigned supreme in the world of sequence modeling tasks like language translation. 
@@ -71,36 +72,36 @@ Now let's dive into the architecture. Refer to the diagram below to get a sense 
 
 Let's call the input sequence is x. It will be passed through the encoder first.
 
-**Encoder Processing**:
+##### **Encoder Processing**:
 
-+ **Encoder Input**: x
-+ **Step 1: Multi-Head Attention**: x passes through a multi-head attention layer, resulting in x'. (x' has the same dimensions as x)
-+ **Step 2: Residual Connection & Layer Normalization**:
-  + Add x' to the original input x.
-  + Apply Layer Normalization to the result. Let's call this output x''.
-+ **Step 3: Feed-Forward Network**: x'' passes through a position-wise feed-forward neural network, resulting in x'''.
-+ **Step 4: Residual Connection & Layer Normalization**:
-  + Add x''' to the input of this sub-layer, x''.
-  + Apply Layer Normalization to the result. Let's call this output x''''.
-+ **Repeat**: Steps 1-4 are repeated N=6 times (N is the number of layers in the encoder).
-+ **Encoder Output**: After N layers, we obtain the encoder's output. Let's call it e (context-rich representation).
+- **Encoder Input**: $$ x $$
+- **Step 1: Multi-Head Attention**: $$ x $$ passes through a multi-head attention layer, resulting in $$ x_0 $$. ($$ x_0 $$ has the same dimensions as $$ x $$)
+- **Step 2: Residual Connection & Layer Normalization**:
+  - Add $$ x_0 $$ to the original input $$ x $$.
+  - Apply Layer Normalization to the result. Let's call this output $$ x_1 $$.
+- **Step 3: Feed-Forward Network**: $$ x_1 $$ passes through a position-wise feed-forward neural network, resulting in $$ x_2 $$.
+- **Step 4: Residual Connection & Layer Normalization**:
+  - Add $$ x_2 $$ to the input of this sub-layer, $$ x_1 $$.
+  - Apply Layer Normalization to the result. Let's call this output $$ x_3 $$.
+- **Repeat**: Steps 1-4 are repeated $$ N = 6 $$ times (N is the number of layers in the encoder).
+- **Encoder Output**: After $$ N $$ layers, we obtain the encoder's output, which is called $$ e $$ (context-rich representation).
 
-**Decoder Processing:**
+##### **Decoder Processing**:
 
-+ **Decoder Input**: y (target sequence)
-+ **Step 1: Masked Multi-Head Attention**: y passes through a masked multi-head attention layer, resulting in y'. (y' has the same dimensions as y)
-+ **Step 2: Residual Connection & Layer Normalization**:
-  + Add y' to the original input y.
-  + Apply Layer Normalization to the result. Let's call this output y''.
-+ **Step 3: Multi-Head Attention over Encoder Output**: y'' passes through a multi-head attention layer that attends to the encoder's output e, resulting in y'''.
-+ **Step 4: Residual Connection & Layer Normalization**:
-  + Add y''' to the input of this sub-layer, y''.
-  + Apply Layer Normalization to the result. Let's call this output y''''.
-+ **Step 5: Feed-Forward Network**: y'''' passes through a position-wise feed-forward neural network, resulting in y'''''.
-+ **Step 6: Residual Connection & Layer Normalization**:
-  + Add y'''''' to the input of this sub-layer, y''''.
-  + Apply Layer Normalization to the result. Let's call this output y'''''''.
-+ **Repeat**: Steps 1-6 are repeated N=6 times.
+- **Decoder Input**: $$ y $$ (target sequence)
+- **Step 1: Masked Multi-Head Attention**: $$ y $$ passes through a masked multi-head attention layer, resulting in $$ y_0 $$. ($$ y_0 $$ has the same dimensions as $$ y $$)
+- **Step 2: Residual Connection & Layer Normalization**:
+  - Add $$ y_0 $$ to the original input $$ y $$.
+  - Apply Layer Normalization to the result. Let's call this output $$ y_1 $$.
+- **Step 3: Multi-Head Attention over Encoder Output**: $$ y_1 $$ passes through a multi-head attention layer that attends to the encoder's output $$ e $$, resulting in $$ y_2 $$.
+- **Step 4: Residual Connection & Layer Normalization**:
+  - Add $$ y_2 $$ to the input of this sub-layer, $$ y_1 $$.
+  - Apply Layer Normalization to the result. Let's call this output $$ y_3 $$.
+- **Step 5: Feed-Forward Network**: $$ y_3 $$ passes through a position-wise feed-forward neural network, resulting in $$ y_4 $$.
+- **Step 6: Residual Connection & Layer Normalization**:
+  - Add $$ y_4 $$ to the input of this sub-layer, $$ y_3 $$.
+  - Apply Layer Normalization to the result. Let's call this output $$ y_5 $$.
+- **Repeat**: Steps 1-6 are repeated $$ N = 6 $$ times.
 
 Note that: all **x**'s have the same dimension, all **y**'s have the same dimension.
 
@@ -177,6 +178,7 @@ $$
 - The results from each head are concatenated and then projected back into the original space using $$W^O$$.
 
 ##### **Applications of Attention in the Transformer**
+
 In the Transformer, attention is used in three different ways:
 
 1. **Self-Attention in the Encoder**: In each encoder layer, **self-attention** allows each token to attend to all other tokens in the same input sequence. This allows each token to gather information from the entire sequence, regardless of their position.
@@ -186,33 +188,34 @@ In the Transformer, attention is used in three different ways:
 3. **Encoder-Decoder Attention**: The decoder also has an additional layer of attention that allows each token in the decoder to attend to all tokens in the encoder’s output. This ensures that the decoder can use the context from the encoder (which processes the input sequence) to generate the target sequence.
 
 #### Look back at how the input and output are processed in the encoder and decoder
+
 > Make sure you've grasped the previous section on Attention Mechanisms before proceeding.
 
-Okay, now we know what really attention is. Let's look back at how the input and output are processed in the encoder and decoder and explain the key aspects in the previous section.
+Okay, now we know what attention is. Let's look back at how the input and output are processed in the encoder and decoder and explain the key aspects from the previous section.
 
 In the **encoder**, $$x$$ will go through a **multi-head attention** mechanism first. Now, we can understand this better:
 
-- For each value in $$x$$, say $$x[i]$$ (remember that $$x$$ is just a vector), **$$x[i]$$ will learn from other $$x[j]$$ (also itself)**. This means that $$x[i]$$ can attend to every other word in the sequence (including itself) and decide how much attention it should pay to each word. In simpler terms, it is **self-attention**, where each word gathers context from every other word in the sequence.
-  
-  This process of **attention** allows the model to focus on the most relevant parts of the sequence to understand the meaning of $$x[i]$$. For example, if $$x[i]$$ is the word "dog", it might focus more on "bark" and less on a word like "a". This happens because the **attention mechanism** computes a score for each word, which determines how much focus $$x[i]$$ should put on other words. The result is a **weighted sum of the values**, which is $$x'$$.
+- For each value in $$x$$, say $$x[i]$$ (remember that $$x$$ is just a vector), $$x[i]$$ will learn from other $$x[j]$$ (also itself). This means that $$x[i]$$ can attend to every other word in the sequence (including itself) and decide how much attention it should pay to each word. In simpler terms, it is **self-attention**, where each word gathers context from every other word in the sequence.
+
+  This process of **attention** allows the model to focus on the most relevant parts of the sequence to understand the meaning of $$x[i]$$. For example, if $$x[i]$$ is the word "dog", it might focus more on "bark" and less on a word like "a". This happens because the **attention mechanism** computes a score for each word, which determines how much focus $$x[i]$$ should put on other words. The result is a **weighted sum of the values**, which is $$x_0$$.
 
 - **Multi-Head Attention**: The advantage of **multi-head attention** is that it doesn't just focus on one interpretation of the context. Instead, it has multiple "heads", each of which looks at the data from a different angle. So, one head might focus on syntactic relations (like subject-verb agreement), another might focus on semantic relations (like understanding which objects "bark"), and yet another might focus on positional relationships. After all these heads have processed the input in parallel, their outputs are combined to form a richer understanding.
 
-- The **residual connection** adds $$x$$ back to $$x'$$, ensuring that the original input information isn't lost and stabilizing the learning process. After this, **Layer Normalization** is applied to normalize the output, ensuring smoother and more efficient training.
+- The **residual connection** ensures that the original input information isn't lost and stabilizing the learning process. After this, **Layer Normalization** is applied to normalize the output, ensuring smoother and more efficient training.
 
 Now, let’s move to the **decoder**. The target sequence $$y$$ is passed through the first sub-layer, which is a **masked multi-head attention mechanism**:
 
-- For each value in $$y$$, say $$y[i]$$, the **masked multi-head attention** ensures that $$y[i]$$ can attend to all previous positions in the sequence, but not to future ones. This is crucial because we are generating the output sequence one token at a time, so $$y[i]$$ must only depend on the previous tokens and not on the ones that come after. This masking prevents the model from cheating by looking ahead at the future tokens, and ensures that the model generates each token in an autoregressive manner.
+- For each value in $$y$$, say $$y[i]$$, the **masked multi-head attention** ensures that $$y[i]$$ can attend to all previous positions in the sequence, but not to future ones. This is crucial because we are generating the output sequence one token at a time, so $$y[i]$$ must only depend on the previous tokens and not on the ones that come after. This masking prevents the model from cheating by looking ahead at the future tokens and ensures that the model generates each token in an autoregressive manner.
 
-- The **multi-head attention** in the decoder works similarly to the encoder's attention, allowing $$y[i]$$ to attend to all previous positions in the output sequence and gather context. But this time, we are working with a target sequence, and each token in the sequence is dependent on the ones before it. Once this attention is computed, it results in $$y'$$, and the same **residual connection** and **Layer Normalization** are applied to stabilize the training and retain the original information.
+- The **multi-head attention** in the decoder works similarly to the encoder's attention, allowing $$y[i]$$ to attend to all previous positions in the output sequence and gather context. But this time, we are working with a target sequence, and each token in the sequence is dependent on the ones before it. Once this attention is computed, it results in $$y_0$$, and the same **residual connection** and **Layer Normalization** are applied to stabilize the training and retain the original information.
 
 - In the next sub-layer of the decoder, **multi-head attention over the encoder’s output** is performed. Here, each $$y[i]$$ will attend to all the words in the encoder's output $$e$$, which contains the context from the input sequence. This means that for every word in the target sequence, the decoder looks back at the entire input sequence (processed by the encoder) to gather relevant information. For example, if the target word is "chien" (French for dog), the decoder might attend to the word "dog" in the encoder’s output.
 
-- Subsequently, we have the **residual connection** and **Layer Normalization** after this attention step, producing $$y'''$$.
+- Subsequently, we have the **residual connection** and **Layer Normalization** after this attention step.
 
-- Finally, $$y''''$$ (after all attention steps) is passed through a **feed-forward neural network**, where each token in $$ y''''$$ is processed independently. This step adds further non-linearity and complexity to the model, which is important for learning complex patterns. The output is again subjected to **residual connection** and **Layer Normalization**, resulting in the final output $$y''''''$$.
-
+- Finally, $$y$$ (after all attention steps) is passed through a **feed-forward neural network**, where each token in $$y$$ is processed independently. This step adds further non-linearity and complexity to the model, which is important for learning complex patterns. The output is again subjected to **residual connection** and **Layer Normalization**.
 #### Position-wise Feed-Forward Networks
+
 We've seen how the attention mechanism allows the Transformer to understand the relationships between words in a sequence, essentially capturing the context for each word. Now, after this contextual understanding, each word's representation undergoes further, individual processing. This is where **Position-wise Feed-Forward Networks** come into play.
 
 Think of it this way: Following the attention mechanism, which has enriched each word's representation with contextual information, we now apply a dedicated processing step to each word individually. Imagine each word in the sentence being passed through its own specialized, small neural network – a dedicated processor for that specific position.
