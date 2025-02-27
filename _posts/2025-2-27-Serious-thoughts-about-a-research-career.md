@@ -71,6 +71,7 @@ Vậy ở đây, khi mà mình hiểu được các tầng lớp sâu sắc đ�
 > Có lẽ điều này cũng giải thích được phần nào sự ngưỡng mộ của mình dành cho lũ bạn theo hướng research hay các idol kia :v 
 
 > Và có lẽ mình tự học là chính, nên các cảm nhận đi từ sâu sang nông là một quá trình khó khăn hơn. Chính vì thế mình trân trọng cảm giác đó hơn :v. Anyway, chờ bài khác nói thêm nhé hehe =))
+
 ### Về theo con đường AI researcher
 Mặc dù rất có thiện cảm với các AI reseacher và đọc papers, nhưng mà mình sẽ không theo con đường này, mình sẽ liệt kê một vài lí do (chủ quan) sau:
 + Tiền
