@@ -45,6 +45,7 @@ Theo mình, đọc papers giúp bạn có được:
 - Góc nhìn đa chiều cho chủ đề nghiên cứu
 - (Các) nền tảng cho họ viết paper
 - Học hỏi từ người đi trước
+
 ## Suy nghĩ của mình
 Okayyyy, đã qua vài định nghĩa nhàm chán, bây giờ thì tới với suy nghĩ của mình nè.
 ### Về AI researcher
