@@ -22,6 +22,7 @@ This blog will have 3 main types of posts:
 + [Are Vision Language Models learning effectively?](https://bfcmath.github.io/posts/Are-Vision-Language-Models-learning-effectively/)
 + [My first ever AI competition (DSC UIT 2024)](https://bfcmath.github.io/posts/My-first-ever-AI-competition-(DSC-UIT-2024)/)
 + [Attention is all you need and much more](https://bfcmath.github.io/posts/Attention-is-all-you-need-and-much-more/)
++ [Is Generative language model better than Representative one?](_posts/2025-2-23-Is-generative-language-model-better-than-representative-one.md)
 <!-- FOR BFC ONLY -->
 <!-- bundle lock --add-platform x86_64-linux  -->
 <!-- bundle exec jekyll s                     -->
