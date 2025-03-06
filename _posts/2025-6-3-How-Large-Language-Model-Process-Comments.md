@@ -6,14 +6,14 @@ tags: [en, llm]
 description: Do LLMs even care about comments in code or are they just skipping it?
 author: BFC
 image:
-  path: assets/local/thought_about_research.png
+  path: assets/local/cmt.png
 # render_with_liquid: false
 # toc: false
 comments: true
 ---
 > This post contains many subjective opinions based on my personal research and understandings, so please take it with a grain of salt.
 
-## Comments in coding
+## Introduction - Comments in coding 
 Hey everyone! Let’s talk about something we all deal with in coding: comments. You know, those little notes we leave in our code—like `# This adds two numbers` —to explain what’s going on. For us developers, comments are a lifesaver. They help us figure out what a tricky line does, remind us why we wrote something a certain way, and make it easier for others to jump into our projects. Without them, code can feel like a puzzle with missing pieces, right?
 
 But here’s where things get interesting. I’ve been playing around with Large Language Models (LLMs) lately—you know, tools like GPT-4 or Grok that help us write and understand code. And I’ve noticed something odd. Sometimes, when I ask these models to explain my code, they just skip over the comments like they’re not even there. Other times, when they’re writing code for me, they add comments without me even asking! It got me wondering: what’s going on with LLMs and comments? Do they actually get what those `#` lines mean, or are they just doing their own thing?
@@ -28,7 +28,7 @@ First off, I tried asking GPT-4 and GPT-4o to explain some code I wrote. I’d t
 
 Then there’s GitHub Copilot, which I use a lot when I’m coding. I noticed something different with it. If I put a regular comment like `# Please make this add two numbers`, it doesn’t seem to care—it’ll generate whatever it wants. But if I switch it up and write something in triple quotes, like `"""This function adds two numbers"""`, suddenly it listens! It’ll churn out a function that matches what I described. That threw me off at first—why does it care about one but not the other? It’s like it’s picky about how I talk to it.
 
-On the flip side, I’ve seen LLMs shine when they’re the ones writing code. Models like GPT, Grok, and Gemini—they’ll whip up a function and toss in comments without me even asking. Like, I’ll say “Write me a function to sort a list,” and they’ll come back with something clean, complete with lines like `# Sort the list in ascending order`. It’s pretty cool, honestly. It makes me think they do get comments, at least when they’re in the driver’s seat.
+On the flip side, I’ve seen LLMs shine when they’re the ones writing code. Models like GPT, Grok, and Gemini—they’ll whip up a function and toss in comments without me even asking. Like, I’ll say “Write me a function to sort a list,” and they’ll come back with something clean, complete with lines like `# Sort the list in ascending order`. It’s pretty cool, honestly. It makes me think they do get comments, at least when they’re writing code.
 
 Now, I’ll be real—these are just my first impressions from playing around. Maybe I missed something, or maybe it depends on how I ask. But it’s got me curious enough to dig deeper. Why do some LLMs skip comments when I want an explanation, but then turn around and write them so naturally? That’s what I’m here to figure out, and it’s where we’ll head next.
 
@@ -63,7 +63,7 @@ Here’s where it gets trickier. Even when GPT-4 skips my comments in an explana
 
 ### Docstrings vs. Comments: Copilot’s Pickiness
 
-Then there’s Copilot, which threw me for a loop. When I write `# Make this add two numbers`, it often ignores me, but """This function adds two numbers""" gets a perfect response. This isn’t a fluke—it’s about how comments are treated in programming. In Python, triple quotes mark docstrings, which are more than just notes; they’re part of the code’s structure, stored and accessible at runtime. Regular `#` comments, though, are tossed out by the interpreter and don’t carry the same weight.[Best practices for writing code comments](https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/) points out that tools like Copilot are often trained to see docstrings as instructions, while `#` lines are more like background chatter. It’s a design choice that explains why my wording matters so much with that tool.
+Then there’s Copilot, which threw me for a loop. When I write `# Make this add two numbers`, it often ignores me, but `"""This function adds two numbers"""` gets a perfect response. This isn’t a fluke—it’s about how comments are treated in programming. In Python, triple quotes mark docstrings, which are more than just notes; they’re part of the code’s structure, stored and accessible at runtime. Regular `#` comments, though, are tossed out by the interpreter and don’t carry the same weight.[Best practices for writing code comments](https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/) points out that tools like Copilot are often trained to see docstrings as instructions, while `#` lines are more like background chatter. It’s a design choice that explains why my wording matters so much with that tool.
 
 What ties all this together is that LLMs don’t treat comments the same way across tasks. Their behavior—ignoring, generating, or subtly using them—comes from a mix of training priorities, data patterns, and how they’re meant to help us. It’s not perfect, and it’s definitely not what I expected at first, but it’s starting to make sense. Next, we’ll see how newer models are handling this and what it might mean down the line.
 
