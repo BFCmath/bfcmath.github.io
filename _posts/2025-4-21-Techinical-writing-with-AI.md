@@ -6,7 +6,7 @@ tags: [en, beginner, technical-writing, ai, prompt-engineering, school-competiti
 description: How I wrote a technical report in just 3 hours with no experience.
 author: BFC
 image:
-  path: assets/local/prompt_generator.png
+  path: assets/local/technical_writing.png
 # render_with_liquid: false
 # toc: false
 comments: true
