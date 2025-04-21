@@ -23,6 +23,9 @@ This blog will have 3 main types of posts:
 + [My first ever AI competition (DSC UIT 2024)](https://bfcmath.github.io/posts/My-first-ever-AI-competition-(DSC-UIT-2024)/)
 + [Attention is all you need and much more](https://bfcmath.github.io/posts/Attention-is-all-you-need-and-much-more/)
 + [Is Generative language model better than Representative one?](_posts/2025-2-23-Is-generative-language-model-better-than-representative-one.md)
++ [Serious thoughts about a research career](_posts/2025-2-27-Serious-thoughts-about-a-research-career.md)
++ [AI Prompt Generator for Deep Research](_posts/2025-4-11-AI-prompt-generator-for-deep-research.md)
++ [Technical writing with AI](_posts/2025-4-21-Techinical-writing-with-AI.md)
 <!-- FOR BFC ONLY -->
 <!-- bundle lock --add-platform x86_64-linux  -->
 <!-- bundle exec jekyll s                     -->
